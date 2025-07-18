@@ -6,6 +6,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <string.h>
+# include "/home/abouabba/Desktop/Cup_3D/libft/libft.h"
 
 typedef struct s_textures {
 	char	*north;
