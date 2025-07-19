@@ -52,6 +52,8 @@ void	save_map_line(t_game *game, char *line);
 int		in_valid_ber_file(char *file_name);
 void	parse_config_line(t_game *game, char *line);
 int	parse_color(char *line);
+void    finalize_map(t_game *game);
+void print_map(char **map);
 
 
 // helper
