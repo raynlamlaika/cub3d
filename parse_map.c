@@ -52,8 +52,8 @@ void finalize_map(t_game *game)
     while (current)
     {
         game->map[i] = malloc(width + 1);
-        memset(game->map[i], ' ', width);
-        memcpy(game->map[i], current->line, ft_strlen(current->line));
+        ft_memset(game->map[i], ' ', width);
+        ft_memcpy(game->map[i], current->line, ft_strlen(current->line));
         game->map[i][width] = '\0';
 
         current = current->next;

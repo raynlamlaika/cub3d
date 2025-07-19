@@ -67,5 +67,7 @@ int	ft_atoi(const char	*str);
 int	ft_isdigit(int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
+void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 #endif
