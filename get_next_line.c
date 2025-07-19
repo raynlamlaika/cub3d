@@ -1,5 +1,4 @@
-
-#include "get_next_line.h"
+#include "cub.h"
 
 char	*check_read(int fd, char *buffer)
 {

@@ -6,7 +6,11 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <string.h>
-# include "/home/abouabba/Desktop/Cup_3D/libft/libft.h"
+# include <limits.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42 
+#endif
 
 typedef struct s_textures {
 	char	*north;
@@ -45,9 +49,21 @@ int		is_empty_line(char *line);
 void	parse_line(t_game *game, char *line);
 void	parse_config_line(t_game *game, char *line);
 void	save_map_line(t_game *game, char *line);
+int		in_valid_ber_file(char *file_name);
+void	parse_config_line(t_game *game, char *line);
+int	parse_color(char *line);
+
 
 // helper
 char	*ft_strdup(const char *s);
 char	*get_next_line(int fd); // must be included from your GNL
+size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s1);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(char *s, int c);
+int	ft_atoi(const char	*str);
+int	ft_isdigit(int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	**ft_split(char const *s, char c);
 
 #endif

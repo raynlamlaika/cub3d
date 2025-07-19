@@ -1,16 +1,30 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abouabba <abouabba@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 19:44:07 by abouabba          #+#    #+#             */
-/*   Updated: 2024/11/19 05:18:23 by abouabba         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "cub.h"
 
-#include "libft.h"
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t		len_s;
+	size_t		i;
+	char		*s1;
+
+	if (!s)
+		return (NULL);
+	len_s = ft_strlen(s);
+	if (start >= len_s || (len == 0))
+		return (ft_strdup(""));
+	i = 0;
+	if (len > len_s - start)
+		len = len_s - start;
+	s1 = malloc((len + 1) * sizeof(char));
+	if (!s1)
+		return (NULL);
+	while (i < len)
+	{
+		s1[i] = s[i + start];
+		i++;
+	}
+	s1[i] = '\0';
+	return (s1);
+}
 
 static int	counter_word(char const *s, char dilimiter)
 {

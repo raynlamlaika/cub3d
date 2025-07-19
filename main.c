@@ -27,6 +27,7 @@ int	main(int ac, char **av)
 	{
 		if (!is_empty_line(line))
 			parse_line(game, line);
+		printf ("%s", line);
 		free(line);
 	}
 	close(fd);
