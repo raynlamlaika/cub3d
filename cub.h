@@ -36,6 +36,8 @@ typedef struct s_game {
 	int			ceiling_color;
 	t_line		*map_lines;
 	char		**map;
+	int			map_started;
+	int			map_ended;
 	int			map_width;
 	int			map_height;
 	t_player	player;
@@ -55,6 +57,7 @@ int	parse_color(char *line);
 void    finalize_map(t_game *game);
 void print_map(char **map);
 void	validate_map(t_game *game);
+void	print_error(const char *message);
 
 
 // helper

@@ -4,11 +4,11 @@ void save_map_line(t_game *game, char *line)
 {
     int len = ft_strlen(line);
     if (len > 0 && line[len - 1] == '\n')
-        line[len - 1] = '\0'; // Remove trailing newline
+        line[len - 1] = '\0';
 
     t_line *new = malloc(sizeof(t_line));
     if (!new)
-        return; // Or handle error
+        return;
 
     new->line = ft_strdup(line);
     new->next = NULL;

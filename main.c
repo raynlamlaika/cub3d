@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		if (!is_empty_line(line))
+		// if (!is_empty_line(line))
 			parse_line(game, line);
 		// printf ("%s", line);
 		free(line);
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 
 	// Next steps would be:
 	finalize_map(game);
-	// print_map(game->map);
+	print_map(game->map);
 	validate_map(game);
 	// and parse the map in file map.cub in function validate_map
 	return (0);

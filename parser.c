@@ -59,8 +59,18 @@ void	parse_line(t_game *game, char *line)
 {
 	if (is_config_line(line))
 		parse_config_line(game, line);
+	else if (is_empty_line(line))
+	{
+		if (game->map_started)
+			game->map_ended = 1;
+	}
 	else
+	{
+		if (game->map_ended)
+			print_error("Error: Non-empty map line after empty line (split map)");
+		game->map_started = 1;
 		save_map_line(game, line);
+	}
 }
 
 int	is_empty_line(char *line)

@@ -14,5 +14,7 @@ void	init_game_struct(t_game *game)
 	game->map_height = 0;
 	game->player.x = -1;
 	game->player.y = -1;
+	game->map_started = 0;
+	game->map_ended = 0;
 	game->player.direction = '\0';
 }
