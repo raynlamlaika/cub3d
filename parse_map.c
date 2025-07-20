@@ -30,7 +30,7 @@ void print_map(char **map)
 
 	while (map[i])
 	{
-		printf("%s\n", map[i]);
+		printf("%s", map[i]);
 		i++;
 	}
 }
@@ -38,23 +38,24 @@ void print_map(char **map)
 
 void finalize_map(t_game *game)
 {
-    int height = get_map_height(game->map_lines);
-    int width = get_max_map_width(game->map_lines);
+    game->map_height = get_map_height(game->map_lines);
+    game->map_width = get_max_map_width(game->map_lines);
 
-    game->map = malloc(sizeof(char *) * (height + 1));
+    game->map = malloc(sizeof(char *) * (game->map_height + 1));
     if (!game->map)
 	{
 		perror("Map allocation failed");
+        return ;
 	}
 
     t_line *current = game->map_lines;
     int i = 0;
     while (current)
     {
-        game->map[i] = malloc(width + 1);
-        ft_memset(game->map[i], ' ', width);
+        game->map[i] = malloc(game->map_width + 1);
+        ft_memset(game->map[i], ' ', game->map_width);
         ft_memcpy(game->map[i], current->line, ft_strlen(current->line));
-        game->map[i][width] = '\0';
+        game->map[i][game->map_width] = '\0';
 
         current = current->next;
         i++;

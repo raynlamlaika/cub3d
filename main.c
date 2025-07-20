@@ -34,8 +34,8 @@ int	main(int ac, char **av)
 
 	// Next steps would be:
 	finalize_map(game);
-	print_map(game->map);
-	// - validate_map(game);
+	// print_map(game->map);
+	validate_map(game);
 	// and parse the map in file map.cub in function validate_map
 	return (0);
 }
