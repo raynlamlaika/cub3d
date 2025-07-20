@@ -77,7 +77,7 @@ int	is_empty_line(char *line)
 {
 	while (*line)
 	{
-		if (*line != ' ' && *line != '\n')
+		if (*line != '\n')
 			return (0);
 		line++;
 	}

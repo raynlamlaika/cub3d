@@ -34,9 +34,7 @@ int	main(int ac, char **av)
 
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		if (!is_empty_line(line))
-			parse_line(game, line);
-		// printf ("%s", line);
+		parse_line(game, line);
 		free(line);
 	}
 	close(fd);
