@@ -32,6 +32,12 @@ typedef struct s_line {
 
 typedef struct s_game {
 	t_textures	textures;
+	int			no;
+	int			so;
+	int			we;
+	int			ea;
+	int			f;
+	int			c;
 	int			floor_color;
 	int			ceiling_color;
 	t_line		*map_lines;
@@ -73,5 +79,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
