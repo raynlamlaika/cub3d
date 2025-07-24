@@ -22,6 +22,9 @@
 # define KEY_D 2       // D
 # define ESC 53        // Escape
 
+#define SCREEN_WIDTH 1048
+#define SCREEN_HEIGHT 640
+
 # define UP 126        // Up arrow
 # define DOWN 125      // Down arrow
 # define RIGHT 124     // Right arrow
@@ -144,6 +147,6 @@ void cast_all_rays(t_game *game);
 void my_mlx_pixel_put(t_game *game, int x, int y, int color);
 int bottoms(int keycode, t_game *game);
 void ray_cast_all_dda(t_game *game);
-
+void    the_3dview(t_game *game);
 int key_press(int keycode, t_game* game);
 #endif

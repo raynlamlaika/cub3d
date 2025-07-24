@@ -53,7 +53,7 @@ void move_player(t_game *game, int dx, int dy)
 	ft_putchar('\n');
 }
  
-#define ROTATION_SPEED 0.05
+#define ROTATION_SPEED 0.5
 
 int bottoms(int keycode, t_game *game)
 {
