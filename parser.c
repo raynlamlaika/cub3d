@@ -18,6 +18,18 @@ void	free_split(char **arry)
 	free (arry);
 }
 
+
+int	is_digit_str(char *s)
+{
+	while (*s)
+	{
+		if (!ft_isdigit(*s))
+		return (0);
+		s++;
+	}
+	return (1);
+}
+
 int	parse_color(char *line)
 {
 	int i = 0;
@@ -26,11 +38,24 @@ int	parse_color(char *line)
 	int g = 0;
 	int b = 0;
 	while (*line == ' ')
-		line++;
+	line++;
+	int j = 0;
+	while (line[i])
+	{
+		if (line[i] == ',')
+			j++;
+		i++;
+	}
+	i = 0;
+	if (j != 2)
+	{
+		perror("Error\n<---- Invalid color format1 ---->");
+		exit (1);
+	}
 	split = ft_split(line, ',');
 	if (!split)
 	{
-		perror("Error\n<---- Invalid color format ---->");
+		perror("Error\n<---- Invalid color format2 ---->");
 		exit (1);
 	}
 	while (split[i])
@@ -38,16 +63,26 @@ int	parse_color(char *line)
 	if (i != 3)
 	{
 		printf ("----------------------------->\n");
-		perror("Error\n<---- Invalid color format ---->");
+		perror("Error\n<---- Invalid color format3 ---->");
 		free_split(split);
 		exit (1);
 	}
 	r = ft_atoi(split[0]);
 	g = ft_atoi(split[1]);
 	b = ft_atoi(split[2]);
+	int len = ft_strlen(split[2]);
+	if (split[2][len - 1] == '\n')
+	split[2][len - 1] = '\0';
+	printf ("r = [%s],g = [%s],b = [%s]\n", split[0], split[1], split[2]);
+
+	if (!is_digit_str(split[0]) || !is_digit_str(split[1]) || !is_digit_str(split[2]))
+	{
+		free_split(split);
+		print_error("Error: RGB values must contain only digits");
+	}
 	if (invalid_rgb(r, g, b))
 	{
-		perror("Error\n<---- Invalid color format ---->");
+		perror("Error\n<---- Invalid color format4 ---->");
 		free_split(split);
 		exit (1);
 	}
@@ -69,7 +104,7 @@ void	parse_line(t_game *game, char *line)
 		if (game->map_ended)
 			print_error("Error: Non-empty map line after empty line (split map)");
 		game->map_started = 1;
-		save_map_line(game, line);
+		save_map_line(game, line); 
 	}
 }
 
